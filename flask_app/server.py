@@ -102,9 +102,9 @@ def index():
         sid =  SentimentIntensityAnalyzer()
         score = sid.polarity_scores(text)
         if score["neg"]!= 0:
-            return render_template('index.html', result="Negative")
+            return render_template('index.html', result="☹️Negative☹️")
         else:
-            return render_template('index.html', result="Positive")
+            return render_template('index.html', result="😀Positive😀")
 
 
     return render_template('index.html')
