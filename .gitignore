@@ -4,4 +4,5 @@ datasets/
 model_function.ipynb
 flask_app_backup/
 submission/
-utils/_pycache/
+utils/__pycache__/
+utils/resources/__pycache__/
