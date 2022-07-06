@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.background-image {
+  background-image: url("../images/17973908.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 10vmin;
+}
+
+.down {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  width: 80vmin;
+  transform: translate(0, 0);
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #00b4d8;
+  font-size: 10vmin;
+  letter-spacing: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  text-shadow: 0 5px 0 rgba(173, 232, 244, 1),
+    0 10px 40px rgba(173, 232, 244, 0.5), 0 20px 30px rgba(173, 232, 244, 0.5),
+    0 30px 20px rgba(173, 232, 244, 0.5);
+}
+
+h1::before {
+  content: attr(data-title);
+  position: absolute;
+  top: -5px;
+  left: 0;
+  text-shadow: 0 2px 2px rgba(173, 232, 244, 0.5);
+  color: #0096c7;
+  transition: 0.5s;
+}
+
+h1::after {
+  content: attr(data-title);
+  position: absolute;
+  top: -10px;
+  left: 0;
+  text-shadow: 0 2px 2px rgba(173, 232, 244, 0.5);
+  color: #0077b6;
+  transition: 0.5s;
+}
+
+h1:hover::before {
+  top: -10px;
+  left: 10px;
+}
+
+h1:hover::after {
+  top: -20px;
+  left: 20px;
+}
+
+h1::hover {
+  text-shadow: 0 5px 0 rgba(0, 0, 0, 1), 0 10px 40px rgba(0, 0, 0, 0.2),
+    0 20px 30px rgba(0, 0, 0, 0.5), 20px 20px 20px rgba(0, 0, 0, 0.5);
+}
+
+button {
+  width: 17rem;
+  height: 5rem;
+  top: 5rem;
+  border: 0;
+  outline: none;
+  background: #07b4e7;
+  color: #fff;
+  font-size: 1.5rem;
+  border-radius: 40px;
+  text-align: center;
+  box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.check-box {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 40px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  right: -40px;
+  opacity: 0;
+  /* border: #ff2b75 4px solid; */
+}
+
+.check-box svg {
+  width: 2.5rem;
+  margin: 1.25rem;
+}
+
+svg path {
+  stroke-width: 3;
+  stroke: #fff;
+  stroke-dasharray: 34;
+  stroke-dashoffset: 34;
+  stroke-linecap: round;
+}
+
+.active {
+  background: #ff2b75;
+  transition: 1s;
+}
+
+.active .check-box {
+  right: 0;
+  opacity: 1;
+  transition: 1s;
+}
+
+.active p {
+  margin-right: 125px;
+  transition: 1s;
+}
+
+.active svg path {
+  stroke-dashoffset: 0;
+  transition: 1s;
+  transition-delay: 1s;
+}

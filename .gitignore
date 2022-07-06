@@ -1,0 +1,6 @@
+env/
+.ipynb_checkpoints/
+datasets/
+model_function.ipynb
+flask_app_backup/
+submission/
