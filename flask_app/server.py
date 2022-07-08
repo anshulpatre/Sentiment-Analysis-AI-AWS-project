@@ -81,10 +81,11 @@ def SentimentAnalysis(text):
         wordvec_arrays = word_vector(tokens, 200)
         result = xgb_model.predict(wordvec_arrays)[0]
         
-        if result == 0:
-            return "positive"
-        else:
-            return "negative"
+        return result
+        # if result == 0:
+        #     return "positive"
+        # else:
+        #     return "negative"
 
 @app.route('/')
 def home():
@@ -96,10 +97,16 @@ def about():
 
 @app.route('/index', methods = ['POST', 'GET'])
 def index():
+    # if request.method == "POST":
     text = str(request.form.get('data'))
     result = SentimentAnalysis(text)
+    if result!= 0:
+        return render_template('index.html', result="☹️Negative☹️")
+    else:
+        return render_template('index.html', result="😀Positive😀")
     
-    return render_template('index.html', result=result)
+    return render_template('index.html')
+
     # if request.method == "POST":
     #     text = str(request.form.get('data'))
     #     sid =  SentimentIntensityAnalyzer()
